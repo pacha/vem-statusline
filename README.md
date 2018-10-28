@@ -50,7 +50,7 @@ project are:
 * [Vem Tabline](https://github.com/pacha/vem-tabline): A plugin to show the
   list of buffers in the tabline.
 
-* [Vem Colors](https://github.com/pacha/vem-colors): A dark color scheme for
+* [Vem Dark](https://github.com/pacha/vem-dark): A dark color scheme for
   Vim based on Wombat.
 
 Installation
