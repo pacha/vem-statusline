@@ -98,12 +98,14 @@ configuration:
 ![DarkStatusline](doc/images/vem-statusline-dark.png)
 
 ```
-highlight VemStatusLineMode         guifg=#cae682 guibg=#373737 gui=bold
-highlight VemStatusLineBranch       guifg=#999999 guibg=#373737 gui=none
-highlight VemStatusLineFileModified guifg=#cae682 guibg=#373737 gui=bold
-highlight VemStatusLineFileRO       guifg=#e5786d guibg=#373737 gui=bold
-highlight VemStatusLineSeparator    guifg=#999999 guibg=#373737 gui=none
-highlight VemStatusLinePosition     guifg=#f6f3e8 guibg=#373737 gui=bold
+highlight StatusLine                cterm=none ctermfg=255 ctermbg=237 guifg=#e6e3d8 guibg=#373737 gui=none
+highlight StatusLineNC              cterm=none ctermfg=243 ctermbg=238 guifg=#857b6f guibg=#404040 gui=none
+highlight VemStatusLineMode         cterm=bold ctermfg=192 ctermbg=237 guifg=#cae682 guibg=#373737 gui=bold
+highlight VemStatusLineBranch       cterm=none ctermfg=246 ctermbg=237 guifg=#999999 guibg=#373737 gui=none
+highlight VemStatusLineFileModified cterm=bold ctermfg=192 ctermbg=237 guifg=#cae682 guibg=#373737 gui=bold
+highlight VemStatusLineFileRO       cterm=bold ctermfg=192 ctermbg=237 guifg=#e5786d guibg=#373737 gui=bold
+highlight VemStatusLineSeparator    cterm=none ctermfg=246 ctermbg=237 guifg=#999999 guibg=#373737 gui=none
+highlight VemStatusLinePosition     cterm=bold ctermfg=255 ctermbg=237 guifg=#f6f3e8 guibg=#373737 gui=bold
 ```
 
 For a light themed statusline, the configuration could be something like:
@@ -111,13 +113,14 @@ For a light themed statusline, the configuration could be something like:
 ![LightStatusline](doc/images/vem-statusline-light.png)
 
 ```
-highlight StatusLine                guifg=#272727 guibg=#e8e8e8 gui=none
-highlight VemStatusLineMode         guifg=#228080 guibg=#e8e8e8 gui=bold
-highlight VemStatusLineBranch       guifg=#777777 guibg=#e8e8e8 gui=none
-highlight VemStatusLineFileModified guifg=#8ac6f2 guibg=#e8e8e8 gui=bold
-highlight VemStatusLineFileRO       guifg=#e5786d guibg=#e8e8e8 gui=bold
-highlight VemStatusLineSeparator    guifg=#777777 guibg=#e8e8e8 gui=none
-highlight VemStatusLinePosition     guifg=#202020 guibg=#e8e8e8 gui=bold
+highlight StatusLine                cterm=none ctermfg=235 ctermbg=254 guifg=#272727 guibg=#e8e8e8 gui=none
+highlight StatusLineNC              cterm=none ctermfg=246 ctermbg=251 guifg=#909090 guibg=#c8c8c8 gui=none
+highlight VemStatusLineMode         cterm=bold ctermfg=30  ctermbg=254 guifg=#228080 guibg=#e8e8e8 gui=bold
+highlight VemStatusLineBranch       cterm=none ctermfg=243 ctermbg=254 guifg=#777777 guibg=#e8e8e8 gui=none
+highlight VemStatusLineFileModified cterm=bold ctermfg=30  ctermbg=254 guifg=#228080 guibg=#e8e8e8 gui=bold
+highlight VemStatusLineFileRO       cterm=bold ctermfg=167 ctermbg=254 guifg=#e5786d guibg=#e8e8e8 gui=bold
+highlight VemStatusLineSeparator    cterm=none ctermfg=243 ctermbg=254 guifg=#777777 guibg=#e8e8e8 gui=none
+highlight VemStatusLinePosition     cterm=bold ctermfg=235 ctermbg=254 guifg=#272727 guibg=#e8e8e8 gui=bold
 ```
 
 Displaying the current Git branch
