@@ -25,7 +25,10 @@ It displays:
 
 Vem Statusline is designed to be a very fast, small plugin and oriented to
 people that want a bit more information in the statusline than the one provided
-by default but that don't want to install a complex plugin for that.
+by default but that don't want to install a complex plugin for that. (In fact,
+you can also create your own statusline in that case! Check `:help statusline`.
+It's not that difficult and you can use Vem Statusline as base if you want to
+do so).
 
 If you prefer a plugin with more configuration options and that allows you to
 define a great deal of elements and their positions, you can check the
