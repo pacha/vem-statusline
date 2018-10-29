@@ -33,7 +33,8 @@ function! vem_statusline#render()
 
     " mode
     if s:show_mode
-        let statusline .= "%#VemStatusLineMode#%{vem_statusline#show_mode(". active_window .")}%*"
+        let statusline .= "%#VemStatusLineMode#%{vem_statusline#show_mode(". active_window .", '', 'i')}%*"
+        let statusline .= "%#VemStatusLineModeInsert#%{vem_statusline#show_mode(". active_window .", 'i', '')}%*"
         if s:show_filename || s:show_branch
             let statusline .= "%#VemStatusLineSeparator#%{". active_window ." == winnr() ? '". s:mode_separator ."' : ''}%*"
             let statusline .= "%<"
@@ -95,13 +96,19 @@ function! vem_statusline#render()
 
 endfunction
 
-function! vem_statusline#show_mode(active_window)
+function! vem_statusline#show_mode(active_window, include, exclude)
     " don't show in non-active window
     if a:active_window != winnr()
         return ''
     endif
     " show mode
     let active_mode = mode()
+    if !empty(a:include) && stridx(a:include, active_mode) == -1
+        return ''
+    endif
+    if !empty(a:exclude) && stridx(a:exclude, active_mode) != -1
+        return ''
+    endif
     return get(s:mode_labels, active_mode, active_mode)
 endfunction
 

@@ -22,6 +22,7 @@ let g:vem_statusline_right_separator = get(g:, 'vem_statusline_right_separator',
 " Syntax highlighting
 highlight default link VemStatusLineSeparator StatusLine
 highlight default link VemStatusLineMode StatusLine
+highlight default link VemStatusLineModeInsert StatusLine
 highlight default link VemStatusLineBranch StatusLine
 highlight default link VemStatusLineFileModified StatusLine
 highlight default link VemStatusLineFileRO StatusLine

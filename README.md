@@ -89,6 +89,7 @@ statusline:
 Highlighting Group        | Default    | Color for
 --------------------------|------------|-----------------------------------
 VemStatusLineMode         | StatusLine | Mode indicator
+VemStatusLineModeInsert   | StatusLine | Mode indicator (only insert mode)
 VemStatusLineBranch       | StatusLine | Current Git Branch
 VemStatusLineFileModified | StatusLine | File modified indicator (`*`) 
 VemStatusLineFileRO       | StatusLine | Read-only file indicator (`[RO]`)
@@ -104,6 +105,7 @@ configuration:
 highlight StatusLine                cterm=none ctermfg=255 ctermbg=237 guifg=#e6e3d8 guibg=#373737 gui=none
 highlight StatusLineNC              cterm=none ctermfg=243 ctermbg=238 guifg=#857b6f guibg=#404040 gui=none
 highlight VemStatusLineMode         cterm=bold ctermfg=192 ctermbg=237 guifg=#cae682 guibg=#373737 gui=bold
+highlight VemStatusLineModeInsert   cterm=bold ctermfg=117 ctermbg=237 guifg=#8ac6f2 guibg=#373737 gui=bold
 highlight VemStatusLineBranch       cterm=none ctermfg=246 ctermbg=237 guifg=#999999 guibg=#373737 gui=none
 highlight VemStatusLineFileModified cterm=bold ctermfg=192 ctermbg=237 guifg=#cae682 guibg=#373737 gui=bold
 highlight VemStatusLineFileRO       cterm=bold ctermfg=192 ctermbg=237 guifg=#e5786d guibg=#373737 gui=bold
@@ -119,6 +121,7 @@ For a light themed statusline, the configuration could be something like:
 highlight StatusLine                cterm=none ctermfg=235 ctermbg=254 guifg=#272727 guibg=#e8e8e8 gui=none
 highlight StatusLineNC              cterm=none ctermfg=246 ctermbg=251 guifg=#909090 guibg=#c8c8c8 gui=none
 highlight VemStatusLineMode         cterm=bold ctermfg=30  ctermbg=254 guifg=#228080 guibg=#e8e8e8 gui=bold
+highlight VemStatusLineModeInsert   cterm=bold ctermfg=166 ctermbg=254 guifg=#d75f00 guibg=#e8e8e8 gui=bold
 highlight VemStatusLineBranch       cterm=none ctermfg=243 ctermbg=254 guifg=#777777 guibg=#e8e8e8 gui=none
 highlight VemStatusLineFileModified cterm=bold ctermfg=30  ctermbg=254 guifg=#228080 guibg=#e8e8e8 gui=bold
 highlight VemStatusLineFileRO       cterm=bold ctermfg=167 ctermbg=254 guifg=#e5786d guibg=#e8e8e8 gui=bold
