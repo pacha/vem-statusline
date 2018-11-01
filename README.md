@@ -226,7 +226,7 @@ You can set these variables to configure Vem Statusline in your `.vimrc` file:
 
 `g:vem_statusline_mode_separator`: string (default: ' ~ ')
 
-    Symbol separator between the current mode and the brach/filename
+    Symbol separator between the current mode and the branch/filename
     elements. Not shown if the branch and filename are not displayed.
 
 `g:vem_statusline_branch_separator`: string (default: ':')

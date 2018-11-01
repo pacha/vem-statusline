@@ -179,16 +179,33 @@ You can set these variables to configure Vem Statusline in your |.vimrc| file:
     returns a string. So if you have such a function for a source control
     system other than Git you can perfectly use it here.
 
-*g:vem_statusline_filename_format*   string (default: 't')
+*g:vem_statusline_filename_format*   string (default: 'P')
 
     Format in which the current filename should be displayed:
 
-        t: only the filename without its path (tail)
-        p: full path (path)
+    t: only the filename without its path (tail)
+    p: full path (path)
+    .: path relative to the current directory
+    P: relative to the root of the current project directory. For example,
+       if your project is in a Git repository the name of the filename will
+       be shown relative to the folder where the '.git' directory is. To
+       configure how to detect the root directory of the project use the
+       option `g:vem_statusline_project_marker`. If the file is not within
+       a project, the relative path to the current directory will be used.
+
+*g:vem_statusline_project_marker*    string (default: '.git')
+
+    Name of a file or directory that can be used to define the root
+    directory of your project. To be used with the 'P' option of
+    |g:vem_statusline_filename_format|.
+
+    For example, for projects in Mercurial repositories you can use
+    `.hg` and for Bazaar, `.bzr`. Many projects have a `setup.cfg`
+    file at the root too.
 
 *g:vem_statusline_mode_separator*    string (default: ' ~ ')
 
-    Symbol separator between the current mode and the brach/filename
+    Symbol separator between the current mode and the branch/filename
     elements. Not shown if the branch and filename are not displayed.
 
 *g:vem_statusline_branch_separator*  string (default: ':')
