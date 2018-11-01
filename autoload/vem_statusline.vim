@@ -129,7 +129,13 @@ endfunction
 function! vem_statusline#show_filename(active_window, show_filename)
     " don't show in non-active window
     if a:active_window != winnr() || a:show_filename
-        let filename = expand("%:" . g:vem_statusline_filename_format)
+
+        if g:vem_statusline_filename_format == 'P'
+            let filename = vem_statusline#filename_format#get_name_relative_to_project_root()
+        else
+            let filename = expand("%:" . g:vem_statusline_filename_format)
+        endif
+
         if filename != ''
             return filename
         else

@@ -14,7 +14,8 @@ scriptencoding utf-8
 " Configuration variables
 let g:vem_statusline_parts = get(g:, 'vem_statusline_parts', 'mbfienpP')
 let g:vem_statusline_branch_function = get(g:, 'vem_statusline_branch_function', '')
-let g:vem_statusline_filename_format = get(g:, 'vem_statusline_filename_format', 't')
+let g:vem_statusline_filename_format = get(g:, 'vem_statusline_filename_format', 'P')
+let g:vem_statusline_project_marker = get(g:, 'vem_statusline_project_marker', '.git')
 let g:vem_statusline_mode_separator = get(g:, 'vem_statusline_mode_separator', '  ~ ')
 let g:vem_statusline_branch_separator = get(g:, 'vem_statusline_branch_separator', ':')
 let g:vem_statusline_right_separator = get(g:, 'vem_statusline_right_separator', '|')
