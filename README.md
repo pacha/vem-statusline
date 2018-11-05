@@ -173,7 +173,7 @@ You can set these variables to configure Vem Statusline in your `.vimrc` file:
     have to be displayed. There's a letter per element and the plugin
     will only diplay those elements whose letter is in this variable.
 
-    For instance, if `g:vem_statusline_parts = 'mf'` then only the
+    For instance, if g:vem_statusline_parts = 'mf' then only the
     current mode and the current filename will be displayed.
 
     The meaning of the letters is:
@@ -198,18 +198,17 @@ You can set these variables to configure Vem Statusline in your `.vimrc` file:
        if your project is in a Git repository the name of the filename will
        be shown relative to the folder where the '.git' directory is. To
        configure how to detect the root directory of the project use the
-       option `g:vem_statusline_project_marker`. If the file is not within
+       option g:vem_statusline_project_marker. If the file is not within
        a project, the relative path to the current directory will be used.
 
 `g:vem_statusline_project_marker`: string (default: '.git')
 
     Name of a file or directory that can be used to define the root
     directory of your project. To be used with the 'P' option of
-    `g:vem_statusline_filename_format`.
+    g:vem_statusline_filename_format.
 
-    For example, for projects in Mercurial repositories you can use
-    `.hg` and for Bazaar, `.bzr`. Many projects have a `setup.cfg`
-    file at the root too.
+    For example, for projects in Mercurial repositories you can use .hg and for
+    Bazaar, .bzr. Many projects have a setup.cfg file at the root too.
 
 `g:vem_statusline_branch_function`: string (default: '')
 
