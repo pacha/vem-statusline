@@ -13,7 +13,7 @@ It displays:
 * Current Git branch (requires [vim-gitbranch](https://github.com/itchyny/vim-gitbranch))
   or [fugitive.vim](https://github.com/tpope/vim-fugitive))
 
-* Filename
+* Filename (absolute, relative or relative to the root of the repository)
 
 * Indentation type and size (`tabs`, `spaces`, `tabs+spaces`)
 
@@ -52,7 +52,6 @@ project are:
 
 * [Vem Tabline](https://github.com/pacha/vem-tabline): A plugin to show the
   list of buffers in the tabline.
-
 * [Vem Dark](https://github.com/pacha/vem-dark): A dark color scheme for
   Vim based on Wombat.
 
@@ -140,23 +139,23 @@ the branch, install:
 
 * [vim-gitbranch](https://github.com/itchyny/vim-gitbranch)
 
-And set the following variable in your `.vimrc` file:
-```
-let g:vem_statusline_branch_function = 'gitbranch#name'
-```
 This plugin by itchyny provides just the functionality to retrieve the
 branch name.
 
-If you have installed or prefer to use:
+You can also install (if you don't have it already installed):
 
 * [fugitive.vim](https://github.com/tpope/vim-fugitive)
 
-by Tim Pope, the value to add is:
-```
-let g:vem_statusline_branch_function = 'fugitive#head'
-```
-Vem Statusline will then display current Git branch every time you edit
-a file withing a repository.
+by Tim Pope, which is a larger plugin to use Git from Vim.
+
+If you have any of these two plugins, Vem Statusline will then automatically
+display the current Git branch every time you edit a file within a repository.
+
+If you have any other control version system or a different plugin to integrate
+Vim with Git, you can also provide the name of a function that Vem Statusline
+should use to display the name of the branch. (See
+`g:vem_statusline_branch_function` at [Configuration](#configuration) for more
+details).
 
 *Note*: If you don't see the name of the branch and you have configured the
 plugin to do so, make sure that the value of the `g:vem_statusline_parts`
@@ -188,18 +187,6 @@ You can set these variables to configure Vem Statusline in your `.vimrc` file:
     p: position in the file (line:column)
     P: progress in percentage through the file
 
-`g:vem_statusline_branch_function`: string (default: '')
-
-    Name of the function to execute to retrieve the current Git branch
-    name. Use:
-
-    `gitbranch#name` for [vim-gitbranch](https://github.com/itchyny/vim-gitbranch)
-    `fugitive#head` for [fugitive.vim](https://github.com/tpope/vim-fugitive)
-
-    Actually, you can use here the name of any Vim script function that returns
-    a string. So if you have such a function for a source control system other
-    than Git you can perfectly use it here.
-
 `g:vem_statusline_filename_format`: string (default: 'P')
 
     Format in which the current filename should be displayed:
@@ -223,6 +210,24 @@ You can set these variables to configure Vem Statusline in your `.vimrc` file:
     For example, for projects in Mercurial repositories you can use
     `.hg` and for Bazaar, `.bzr`. Many projects have a `setup.cfg`
     file at the root too.
+
+`g:vem_statusline_branch_function`: string (default: '')
+
+    Name of the function to execute to retrieve the current Git branch name. By
+    default, Vem Statusline will detect one of the following functions provided
+    by the following external plugins to display the current branch name:
+
+    gitbranch#name for [vim-gitbranch](https://github.com/itchyny/vim-gitbranch)
+    fugitive#head  for [fugitive.vim](https://github.com/tpope/vim-fugitive)
+
+    If you don't want to use any of those plugins or you use a control version
+    system different from Git (such as Mercurial or Bazaar), then you can use
+    this variable to specify the function that Vem Statusline should execute to
+    retrieve the branch name. For example, if the function that returns the
+    name of the branch is GetBranchName() you can add the following to your
+    .vimrc file:
+
+        let g:vem_statusline_branch_function = 'GetBranchName'
 
 `g:vem_statusline_mode_separator`: string (default: ' ~ ')
 

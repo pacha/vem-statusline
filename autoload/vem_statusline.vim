@@ -12,7 +12,7 @@ let s:newline_labels = {'unix': 'LF', 'mac': 'CR', 'dos': 'CRLF'}
 
 " statusline parts
 let s:show_mode = stridx(g:vem_statusline_parts, 'm') != -1
-let s:show_branch = stridx(g:vem_statusline_parts, 'b') != -1 && g:vem_statusline_branch_function != ''
+let s:show_branch = stridx(g:vem_statusline_parts, 'b') != -1
 let s:show_filename = stridx(g:vem_statusline_parts, 'f') != -1
 let s:show_indent = stridx(g:vem_statusline_parts, 'i') != -1
 let s:show_encoding = stridx(g:vem_statusline_parts, 'e') != -1
@@ -118,7 +118,17 @@ function! vem_statusline#show_branch(active_window, separator)
         return ''
     endif
     " show branch name
-    let branch_name = function(g:vem_statusline_branch_function)()
+    if g:vem_statusline_branch_function != ''
+        let branch_name = function(g:vem_statusline_branch_function)()
+    else
+        if exists('*gitbranch#name')
+            " for https://github.com/itchyny/vim-gitbranch
+            let branch_name = gitbranch#name()
+        elseif exists('*fugitive#head')
+            " for https://github.com/tpope/vim-fugitive
+            let branch_name = fugitive#head()
+        endif
+    endif
     if branch_name != ''
         return branch_name . a:separator
     else
