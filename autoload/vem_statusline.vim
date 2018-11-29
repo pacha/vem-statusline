@@ -118,8 +118,15 @@ function! vem_statusline#show_branch(active_window, separator)
         return ''
     endif
     " show branch name
-    if g:vem_statusline_branch_function != ''
-        let branch_name = function(g:vem_statusline_branch_function)()
+    if exists('g:vem_statusline_branch_function') && g:vem_statusline_branch_function != ''
+        try
+            let branch_name = function(g:vem_statusline_branch_function)()
+        catch /E700:/
+            let msg = "vem-statusline: function '" . g:vem_statusline_branch_function
+            let msg .= "' to retrieve branch name doesn't exist. Check your configuration."
+            echomsg msg
+            let branch_name = ''
+        endtry
     else
         if exists('*gitbranch#name')
             " for https://github.com/itchyny/vim-gitbranch
@@ -127,13 +134,11 @@ function! vem_statusline#show_branch(active_window, separator)
         elseif exists('*fugitive#head')
             " for https://github.com/tpope/vim-fugitive
             let branch_name = fugitive#head()
+        else
+            let branch_name = ''
         endif
     endif
-    if branch_name != ''
-        return branch_name . a:separator
-    else
-        return ''
-    endif
+    return branch_name != '' ? branch_name . a:separator : ''
 endfunction
 
 function! vem_statusline#show_filename(active_window, show_filename)
