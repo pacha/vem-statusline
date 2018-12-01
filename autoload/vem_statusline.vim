@@ -109,7 +109,9 @@ function! vem_statusline#show_mode(active_window, include, exclude)
     if !empty(a:exclude) && stridx(a:exclude, active_mode) != -1
         return ''
     endif
-    return get(s:mode_labels, active_mode, active_mode)
+    let mode_label = get(s:mode_labels, active_mode, active_mode)
+    let paste_label = &paste ? ' (paste)' : ''
+    return mode_label . paste_label
 endfunction
 
 function! vem_statusline#show_branch(active_window, separator)
