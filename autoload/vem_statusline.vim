@@ -156,7 +156,7 @@ function! vem_statusline#show_filename(active_window, show_filename)
         if filename != ''
             return filename
         else
-            return "[No Name]"
+            return g:vem_unnamed_buffer_label
         endif
     else
         return ''
