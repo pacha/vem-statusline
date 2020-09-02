@@ -25,7 +25,7 @@ It displays:
 
 * Position in the file (line:column) and percentage progress through the file
 
-Vem Statusline is designed to be a very fast, small plugin and oriented to
+The plugin is designed to be a very fast and small, and is oriented towards
 people that want a bit more information in the statusline than the one provided
 by default but that don't want to install a complex plugin for that.
 
@@ -55,7 +55,7 @@ set noshowmode
 Displaying the current Git branch name
 --------------------------------------
 
-Vem Statusline can optionally display the current branch of the repository
+You can optionally display the current branch of the repository
 you're working on. To do so you need a Git Vim plugin.
 
 If you don't have any Git Vim plugin and just want to display the name of
@@ -142,10 +142,10 @@ highlight VemStatusLinePosition     cterm=bold ctermfg=235 ctermbg=254 guifg=#27
 Configuration
 -------------
 
-Vem Statusline offers some configuration options that change which information
-is displayed and with which format.
+Some configuration options are offered to change the elements that are
+displayed and their format.
 
-You can set these variables to configure Vem Statusline in your `.vimrc` file:
+You can set these variables in your `.vimrc` file:
 
 `g:vem_statusline_parts`: string (default: 'mbfienpP')
 
