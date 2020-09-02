@@ -2,7 +2,9 @@
 Vem Statusline
 ==============
 
-Vem Statusline is a simple and fast statusline for Vim.
+Vem Statusline is a simple and fast statusline for Vim/Neovim.
+
+It is designed to display essential editing information while not introducing any performance penalty into the editor.
 
 ![VemStatusline](doc/images/vem-statusline-dark.png)
 
@@ -25,35 +27,10 @@ It displays:
 
 Vem Statusline is designed to be a very fast, small plugin and oriented to
 people that want a bit more information in the statusline than the one provided
-by default but that don't want to install a complex plugin for that. (In fact,
-you can also create your own statusline in that case! Check `:help statusline`.
-It's not that difficult and you can use Vem Statusline as base if you want to
-do so).
+by default but that don't want to install a complex plugin for that.
 
-If you prefer a plugin with more configuration options and that allows you to
-define a great deal of elements and their positions, you can check the
-following ones that are very popular:
-
-* [lightline.vim](https://github.com/itchyny/lightline.vim): It allows you to
-  define your own components and to completely configure the statusline.
-
-* [airline.vim](https://github.com/vim-airline/vim-airline): Large,
-  full-fledged statusline plugin with lots of options and that integrates with
-  many other popular plugins.
-
-In any case, Vem Statusline does provide some configuration options: you can
-enable/disable any element in the statusline and you can also define custom
-colors (see the *Colors* and *Configuration* sections).
-
-*Note*: Vem Statusline is a component of a bigger Vim configuration setup named
-[Vem](https://www.vem-editor.org/). Hence the plugin name. In any case, Vem
-Statusline can be used totally independently from the Vem project. Other
-components of the project are:
-
-* [Vem Tabline](https://github.com/pacha/vem-tabline): A plugin to show the
-  list of buffers in the tabline.
-* [Vem Dark](https://github.com/pacha/vem-dark): A dark color scheme for
-  Vim based on Wombat.
+Vem Statusline is a component of [Vem](https://www.vem-editor.org), an alternative
+command layout for Vim, but it can be used independently from the Vem project.
 
 Installation
 ------------
@@ -74,6 +51,40 @@ at the bottom of the screen by also setting:
 ```
 set noshowmode
 ```
+
+Displaying the current Git branch name
+--------------------------------------
+
+Vem Statusline can optionally display the current branch of the repository
+you're working on. To do so you need a Git Vim plugin.
+
+If you don't have any Git Vim plugin and just want to display the name of
+the branch, install:
+
+* [vim-gitbranch](https://github.com/itchyny/vim-gitbranch)
+
+This plugin by itchyny provides just the functionality to retrieve the
+branch name.
+
+You can also install (if you don't have it already installed):
+
+* [fugitive.vim](https://github.com/tpope/vim-fugitive)
+
+by Tim Pope, which is a larger plugin to use Git from Vim.
+
+If you have any of these two plugins, Vem Statusline will then automatically
+display the current Git branch every time you edit a file within a repository.
+
+If you have any other control version system or a different plugin to integrate
+Vim with Git, you can also provide the name of a function that Vem Statusline
+should use to display the name of the branch. (See
+`g:vem_statusline_branch_function` at [Configuration](#configuration) for more
+details).
+
+*Note*: If you don't see the name of the branch and you have configured the
+plugin to do so, make sure that the value of the `g:vem_statusline_parts`
+variable contains a letter `b` (which is the value to display the branch name
+as explained in the next section).
 
 Colors
 ------
@@ -128,42 +139,11 @@ highlight VemStatusLineSeparator    cterm=none ctermfg=243 ctermbg=254 guifg=#77
 highlight VemStatusLinePosition     cterm=bold ctermfg=235 ctermbg=254 guifg=#272727 guibg=#e8e8e8 gui=bold
 ```
 
-Displaying the current Git branch
----------------------------------
-
-Vem Statusline can optionally display the current branch of the repository
-you're working on. To do so you need a Git Vim plugin.
-
-If you don't have any Git Vim plugin and just want to display the name of
-the branch, install:
-
-* [vim-gitbranch](https://github.com/itchyny/vim-gitbranch)
-
-This plugin by itchyny provides just the functionality to retrieve the
-branch name.
-
-You can also install (if you don't have it already installed):
-
-* [fugitive.vim](https://github.com/tpope/vim-fugitive)
-
-by Tim Pope, which is a larger plugin to use Git from Vim.
-
-If you have any of these two plugins, Vem Statusline will then automatically
-display the current Git branch every time you edit a file within a repository.
-
-If you have any other control version system or a different plugin to integrate
-Vim with Git, you can also provide the name of a function that Vem Statusline
-should use to display the name of the branch. (See
-`g:vem_statusline_branch_function` at [Configuration](#configuration) for more
-details).
-
-*Note*: If you don't see the name of the branch and you have configured the
-plugin to do so, make sure that the value of the `g:vem_statusline_parts`
-variable contains a letter `b` (which is the value to display the branch name
-as explained in the next section).
-
 Configuration
 -------------
+
+Vem Statusline offers some configuration options that change which information
+is displayed and with which format.
 
 You can set these variables to configure Vem Statusline in your `.vimrc` file:
 
@@ -241,4 +221,36 @@ You can set these variables to configure Vem Statusline in your `.vimrc` file:
 `g:vem_statusline_right_separator`: string (default: '|')
 
     Symbol separator between the indent, encoding and newline elements.
+
+Alternatives
+------------
+
+Vem Statusline is designed to be very small and fast. However, if it doesn't
+fit your needs, you can check other plugins which, while being significantly
+larger, allow you to completely define the elements of the statusline. Two
+popular ones are:
+
+* [lightline.vim](https://github.com/itchyny/lightline.vim): It allows you to
+  define your own components and to completely configure the statusline.
+
+* [airline.vim](https://github.com/vim-airline/vim-airline): Large,
+  full-fledged statusline plugin with lots of options and that integrates with
+  many other popular plugins.
+
+Alternatively, you could also consider creating your own statusline. It is not
+that difficult and doing so gives you a great deal of flexibility without
+having to install an extra plugin. Check `:help statusline` for more
+information.
+
+Related projects
+----------------
+
+* [Vem Text Editor](https://www.vem-editor.org): An alternative command layout
+  for Vim.
+
+* [Vem Tabline](https://github.com/pacha/vem-tabline): A plugin to show the
+  list of buffers in the tabline.
+
+* [Vem Dark](https://github.com/pacha/vem-dark): A dark color scheme for
+  Vim based on Wombat.
 
